@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfólio - Jose Carlos Batista</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      /* tema dark padrão */
+      --bg-page: #020617;
+      --bg-header: radial-gradient(circle at top left, #111827 0, #020617 45%, #020617 100%);
+      --primary: #6366f1;
+      --primary-soft: #4f46e5;
+      --accent-yellow: #facc15;
+      --accent-green: #22c55e;
+      --border-soft: #1f2937;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --chip-bg: #111827;
+      --card-bg: #020617;
+      --timeline-line: #22c55e;
+    }
+
+    /* tema claro */
+    :root[data-theme="light"] {
+      --bg-page: #f3f4f6;
+      --bg-header: radial-gradient(circle at top left, #e5e7eb 0, #d1d5db 40%, #e5e7eb 100%);
+      --primary: #2563eb;
+      --primary-soft: #1d4ed8;
+      --accent-yellow: #eab308;
+      --accent-green: #16a34a;
+      --border-soft: #d1d5db;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --chip-bg: #e5e7eb;
+      --card-bg: #ffffff;
+      --timeline-line: #16a34a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg-page);
+      color: var(--text-main);
+    }
+
+    a { color: inherit; }
+
+    /* ===================== HEADER ESTILO ABNER ===================== */
+
+    .site-header {
+      width: 100%;
+      background: var(--bg-header);
+      color: #e5e7eb;
+      padding: 22px 0 40px 0;
+    }
+
+    :root[data-theme="light"] .site-header {
+      color: #111827;
+    }
+
+    :root[data-theme="light"] .brand {
+      color: #1e3a8a;
+    }
+
+    :root[data-theme="light"] .menu a {
+      color: #374151;
+    }
+
+    .header-nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #cbd5f5;
+    }
+
+    nav.menu {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .menu-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .menu-dropdown > a {
+      padding-right: 14px;
+    }
+
+    .menu-sub {
+      display: none;
+      position: absolute;
+      top: 28px;
+      left: 0;
+      min-width: 220px;
+      padding: 8px 10px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 10px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(6px);
+      z-index: 50;
+    }
+
+    .menu-sub a {
+      display: block;
+      padding: 8px 10px;
+      color: #e5e7eb;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .menu-sub a:hover {
+      background: rgba(148, 163, 184, 0.12);
+    }
+
+    .menu-dropdown:hover .menu-sub {
+      display: block;
+    }
+
+    .menu a {
+      font-size: 13px;
+      text-decoration: none;
+      color: #e5e7eb;
+      padding: 6px 0;
+      position: relative;
+    }
+
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 999px;
+      transition: width 0.2s ease;
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-btn {
+      position: relative;
+      font-size: 11px;
+      padding: 6px 10px 6px 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.4);
+      color: #e5e7eb;
+      cursor: pointer;
+      min-width: 44px;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-position: 8px center;
+      background-size: 18px 12px;
+    }
+
+    .lang-btn[data-lang='pt'] {
+      background-image: url('https://flagcdn.com/w20/br.png');
+    }
+
+    .lang-btn[data-lang='en'] {
+      background-image: url('https://flagcdn.com/w20/us.png');
+    }
+
+    .lang-btn[data-lang='es'] {
+      background-image: url('https://flagcdn.com/w20/cr.png');
+    }
+
+    .lang-btn.active {
+      background-color: var(--primary);
+      border-color: var(--primary-soft);
+      background-image: inherit;
+    }
+    
+    .lang-btn.active[data-lang='pt'] {
+      background-image: url('https://flagcdn.com/w20/br.png'), linear-gradient(var(--primary), var(--primary));
+    }
+    
+    .lang-btn.active[data-lang='en'] {
+      background-image: url('https://flagcdn.com/w20/us.png'), linear-gradient(var(--primary), var(--primary));
+    }
+    
+    .lang-btn.active[data-lang='es'] {
+      background-image: url('https://flagcdn.com/w20/cr.png'), linear-gradient(var(--primary), var(--primary));
+    }
+
+    :root[data-theme="light"] .lang-btn {
+      background-color: rgba(248, 250, 252, 0.8);
+      color: #0f172a;
+      background-image: inherit;
+    }
+
+    :root[data-theme="light"] .lang-btn[data-lang='pt'] {
+      background-image: url('https://flagcdn.com/w20/br.png');
+    }
+
+    :root[data-theme="light"] .lang-btn[data-lang='en'] {
+      background-image: url('https://flagcdn.com/w20/us.png');
+    }
+
+    :root[data-theme="light"] .lang-btn[data-lang='es'] {
+      background-image: url('https://flagcdn.com/w20/cr.png');
+    }
+
+    :root[data-theme="light"] .lang-btn.active {
+      background-color: var(--primary);
+      background-image: inherit;
+    }
+
+    :root[data-theme="light"] .lang-btn.active[data-lang='pt'] {
+      background-image: url('https://flagcdn.com/w20/br.png');
+    }
+
+    :root[data-theme="light"] .lang-btn.active[data-lang='en'] {
+      background-image: url('https://flagcdn.com/w20/us.png');
+    }
+
+    :root[data-theme="light"] .lang-btn.active[data-lang='es'] {
+      background-image: url('https://flagcdn.com/w20/cr.png');
+    }
+
+    .theme-toggle {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    :root[data-theme="light"] .theme-toggle {
+      background: #f9fafb;
+    }
+
+    /* HERO */
+
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .hero-title {
+      font-size: 32px;
+      line-height: 1.12;
+      font-weight: 800;
+      color: #e5e7eb;
+      margin-bottom: 14px;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-title .highlight {
+      color: #c4b5fd;
+    }
+
+    :root[data-theme="light"] .hero-title {
+      color: #0f172a;
+    }
+
+    .hero-text {
+      font-size: 14px;
+      color: #cbd5f5;
+      line-height: 1.7;
+      margin-bottom: 18px;
+      max-width: 720px;
+    }
+
+    :root[data-theme="light"] .hero-text {
+      color: #1f2937;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .hero-tag {
+      padding: 7px 14px;
+      font-size: 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      background: rgba(79, 70, 229, 0.25);
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+
+    :root[data-theme="light"] .hero-tag {
+      background: rgba(219, 234, 254, 0.9);
+      color: #1d4ed8;
+    }
+
+    /* ===================== CONTEÚDO ===================== */
+
+    .page {
+      max-width: 1180px;
+      margin: 24px auto 40px auto;
+      padding: 0 24px 40px 24px;
+      background: transparent;
+      box-shadow: none;
+      color: var(--text-main);
+    }
+
+    .section {
+      margin-top: 60px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    /* ===================== TIMELINE EXPERIÊNCIA ===================== */
+
+    .timeline-wrapper {
+      position: relative;
+      display: block;
+      margin-top: 8px;
+      padding-right: 460px; /* espaço para o painel à direita */
+      min-height: 280px;
+    }
+
+    .timeline-detail {
+      position: absolute;
+      top: 0;
+      left: calc(100% - 440px);
+      width: 400px;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      transform-origin: center;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.2s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    :root[data-theme="light"] .timeline-detail {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(249, 250, 251, 0.98));
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    :root[data-theme="light"] .detail-title {
+      color: #111827;
+    }
+
+    .timeline-detail.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .timeline-detail.animate {
+      animation: slideInDetail 0.45s ease;
+    }
+
+    @keyframes slideInDetail {
+      0% {
+        transform: translateX(14px) scale(0.98);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .detail-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-yellow);
+      margin-bottom: 6px;
+    }
+
+    .detail-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+      color: #f8fafc;
+    }
+
+    .detail-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 6px 0 10px 0;
+    }
+
+    .detail-summary {
+      font-size: 13px;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .detail-points {
+      list-style: disc;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      color: var(--text-main);
+      font-size: 12px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 26px;
+      border-left: 2px solid var(--timeline-line);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 6px 10px 16px 0;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-left 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .timeline-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    :root[data-theme="light"] .timeline-item:hover {
+      background: rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-item.active {
+      background: rgba(16, 185, 129, 0.06);
+      border-left: 3px solid var(--accent-yellow);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+    }
+
+    :root[data-theme="light"] .timeline-item.active {
+      background: rgba(16, 185, 129, 0.1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .timeline-item.active::after {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 100%;
+      width: 32px;
+      border-top: 1px dashed var(--timeline-line);
+      opacity: 0.7;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -31px;
+      top: 10px;
+      width: 13px;
+      height: 13px;
+      border-radius: 999px;
+      background-color: #16a34a;
+      border: 2px solid #020617;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+    }
+
+    .timeline-dot.current {
+      background-color: var(--accent-yellow);
+      box-shadow: 0 0 0 2px #020617, 0 0 0 4px rgba(250, 204, 21, 0.4);
+    }
+
+    :root[data-theme="light"] .timeline-dot {
+      border-color: #f9fafb;
+    }
+
+    .timeline-role {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .timeline-company {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .timeline-period {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 2px 0 4px 0;
+    }
+
+    .timeline-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background-color: var(--chip-bg);
+      color: var(--text-main);
+    }
+
+    @media (max-width: 980px) {
+      .timeline-wrapper {
+        padding-right: 0;
+      }
+      .timeline-detail {
+        position: static;
+        width: 100%;
+        margin-top: 12px;
+      }
+    }
+
+    /* ===================== PROJETOS – CARROSSEL ===================== */
+
+    .projects-recent-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      margin-top: 4px;
+    }
+
+    .projects-scroll-wrapper {
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-top: 4px;
+    }
+
+    .projects-grid {
+      display: flex;
+      gap: 18px;
+      min-height: 100%;
+      padding-bottom: 4px;
+    }
+
+    .projects-scroll-wrapper::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .projects-scroll-wrapper::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .projects-scroll-wrapper::-webkit-scrollbar-thumb {
+      background: #4b5563;
+      border-radius: 999px;
+    }
+
+    :root[data-theme="light"] .projects-scroll-wrapper::-webkit-scrollbar-thumb {
+      background: #9ca3af;
+    }
+
+    .project-card {
+      min-width: 260px;
+      max-width: 260px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: var(--card-bg);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.7);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    :root[data-theme="light"] .project-card {
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.9);
+      border-color: var(--primary);
+    }
+
+    :root[data-theme="light"] .project-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-img {
+      height: 110px;
+      background: linear-gradient(135deg, #1e293b, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+
+    :root[data-theme="light"] .project-img {
+      background: linear-gradient(135deg, #e5e7eb, #c7d2fe);
+    }
+
+    .project-body {
+      padding: 12px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .project-badge-updated {
+      align-self: flex-start;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-yellow);
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .project-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      color: var(--text-main);
+    }
+
+    .project-footer {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* ===================== FORMAÇÃO – TIMELINE ===================== */
+
+    .timeline-edu {
+      position: relative;
+      padding-left: 28px;
+      border-left: 2px solid #4b5563;
+      margin-top: 6px;
+    }
+
+    :root[data-theme="light"] .timeline-edu {
+      border-left-color: #9ca3af;
+    }
+
+    .edu-item {
+      position: relative;
+      padding: 0 0 16px 0;
+      margin-bottom: 8px;
+    }
+
+    .edu-item:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .edu-marker {
+      position: absolute;
+      left: -38px;
+      top: -2px;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111827;
+      border: 2px solid #1f2937;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .edu-marker img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #0b1220;
+    }
+
+    .edu-marker.in-progress {
+      border-color: var(--accent-yellow);
+      box-shadow: 0 0 0 2px #020617, 0 0 0 4px rgba(250, 204, 21, 0.35);
+    }
+
+    .edu-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .edu-period {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    /* ===================== IDIOMAS ===================== */
+
+    .lang-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .lang-pill {
+      padding: 10px 18px 10px 40px;
+      border-radius: 999px;
+      border: 1.8px solid #e5e7eb;
+      font-size: 14px;
+      font-weight: 500;
+      background-color: transparent;
+      color: var(--text-main);
+      min-width: 230px;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-position: 14px center;
+      background-size: 18px 12px;
+    }
+
+    :root[data-theme="light"] .lang-pill {
+      border-color: #9ca3af;
+      background: #ffffff;
+    }
+
+    .lang-pill.lang-pt {
+      background-image: url('https://flagcdn.com/w20/br.png');
+    }
+
+    .lang-pill.lang-en {
+      background-image: url('https://flagcdn.com/w20/us.png');
+    }
+
+    .lang-pill.lang-es {
+      background-image: url('https://flagcdn.com/w20/cr.png');
+    }
+
+    .lang-pill.lang-fr {
+      background-image: url('https://flagcdn.com/w20/fr.png');
+    }
+
+    /* ===================== CERTIFICAÇÕES ===================== */
+
+    .cert-list {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .admin-hidden {
+      display: none !important;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cert-badge {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      object-fit: contain;
+      background-color: #020617;
+      padding: 4px;
+      border: 1px solid #4b5563;
+    }
+
+    :root[data-theme="light"] .cert-badge {
+      background-color: #ffffff;
+      border-color: #d1d5db;
+    }
+
+    .cert-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .cert-org {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* CONTATO */
+
+    .contact-text a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 900px) {
+      .header-nav {
+        padding: 0 18px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav.menu {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding: 0 18px;
+      }
+
+      .page {
+        margin: 24px auto 24px auto;
+        padding: 0 18px 32px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER (NAV + HERO) ===================== -->
+  <header class="site-header">
+    <div class="header-nav">
+      <div class="brand" data-i18n="brandName">JOSE CARLOS BATISTA</div>
+
+      <nav class="menu">
+        <a href="#resumo" data-i18n="navResumo">Resumo</a>
+        <a href="#experiencia" data-i18n="navExperiencia">Experiência</a>
+        <div class="menu-dropdown">
+          <a href="#projetos" data-i18n="navProjetos">Projetos</a>
+          <div class="menu-sub">
+            <a href="projetos/arquitetura-de-dados.html" data-i18n="navArqDados">
+              Arquitetura de Dados
+            </a>
+            <a href="projetos/databricks.html" data-i18n="navDatabricks">
+              Databricks
+            </a>
+          </div>
+        </div>
+        <a href="#formacao" data-i18n="navFormacao">Formação</a>
+        <a href="#idiomas" data-i18n="navIdiomas">Idiomas</a>
+        <a href="#certificacoes" data-i18n="navCertificacoes">Certificações</a>
+        <a href="#contato" data-i18n="navContato">Contato</a>
+      </nav>
+
+      <div class="nav-controls">
+        <button class="lang-btn active" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">🌙</button>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section id="resumo" class="hero">
+      <div>
+        <h1 class="hero-title">
+          <span class="highlight" data-i18n="heroTitle1">
+            Arquiteto de Dados / Engenharia de Dados &
+          </span>
+          <span data-i18n="heroTitle2">Engenheiro de Machine Learning</span>
+        </h1>
+        <p class="hero-text" data-i18n="heroText">
+          Profissional focado em arquiteturas de dados modernas, pipelines escaláveis e soluções
+          de Machine Learning aplicadas ao negócio, com experiência em ambientes financeiros e multi-cloud.
+        </p>
+
+        <div class="hero-tags">
+          <span class="hero-tag">Engenharia de Dados</span>
+          <span class="hero-tag">Arquitetura de Dados</span>
+          <span class="hero-tag">Engenharia de Machine Learning</span>
+          <span class="hero-tag">Python &amp; PySpark</span>
+          <span class="hero-tag">Cloud AWS · Azure · GCP</span>
+          <span class="hero-tag">Databricks</span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <!-- ===================== CONTEÚDO (DARK) ===================== -->
+  <main class="page">
+    <!-- EXPERIÊNCIA -->
+    <section id="experiencia" class="section">
+        <h2 class="section-title" data-i18n="expTitle">Experiência – Linha do Tempo da Carreira</h2>
+        <p class="section-subtitle" data-i18n="expSubtitle">
+          Principais posições em dados, arquitetura e machine learning.
+        </p>
+  
+        <div class="timeline-wrapper">
+          <div class="timeline">
+            <!-- Atual -->
+            <div
+              class="timeline-item"
+              data-detail="Migração completa do data lake legado para uma arquitetura Lakehouse com governança, performance e esteiras de MLOps para modelos de investimento."
+              data-highlights="Replatforming em Databricks com Delta Lake|Esteiras de MLOps e observabilidade para modelos de risco|Camadas bronze/silver/gold com governança e otimização de custos"
+            >
+              <div class="timeline-dot current"></div>
+              <div class="timeline-role">
+                Data Architect / Data Engineer / Machine Learning Engineer
+              </div>
+              <div class="timeline-company">Data Driven – Genial Investimento</div>
+              <div class="timeline-period">Jul de 2024 – Dez de 2025</div>
+              <div class="timeline-desc">
+                Projeto: Migração de Data Lake para arquitetura moderna de investimentos.
+              </div>
+              <div class="chip-row">
+                <span class="chip">AWS</span>
+                <span class="chip">Databricks</span>
+                <span class="chip">MLOps</span>
+                <span class="chip">Lakehouse</span>
+              </div>
+            </div>
+  
+            <!-- BRLink -->
+            <div
+              class="timeline-item"
+              data-detail="Concepção e entrega de pré-vendas e arquiteturas de GenAI e dados em múltiplas nuvens, incluindo POCs aceleradas com foco em negócios."
+              data-highlights="Arquiteturas GenAI multi-cloud e RAG|Playbooks de MLOps e observabilidade|Propostas técnicas e workshops executivos"
+            >
+              <div class="timeline-dot"></div>
+              <div class="timeline-role">Data Architect / Data Engineer / GenAI / MLOps</div>
+              <div class="timeline-company">BRLink</div>
+              <div class="timeline-period">Mar de 2022 – Jul de 2024</div>
+              <div class="timeline-desc">
+                Projeto: Pré-vendas e arquiteturas de GenAI em múltiplas nuvens.
+              </div>
+              <div class="chip-row">
+                <span class="chip">AWS</span>
+                <span class="chip">Databricks</span>
+                <span class="chip">GenAI</span>
+                <span class="chip">MLOps</span>
+              </div>
+            </div>
+  
+            <!-- Data Driven (JBFO) -->
+            <div
+              class="timeline-item"
+              data-detail="Implantação de um data lake corporativo com governança e camadas bem definidas para suportar analytics e produtos de dados."
+              data-highlights="Modelagem de zonas raw/curated/trusted|Orquestração de pipelines críticos|Padrões de segurança e custódia de dados"
+            >
+              <div class="timeline-dot"></div>
+              <div class="timeline-role">Data Architect / Data Engineer</div>
+              <div class="timeline-company">Data Driven</div>
+              <div class="timeline-period">Jun de 2020 – Mar de 2022</div>
+              <div class="timeline-desc">
+                Projeto: JBFO – Criação de Data Lake corporativo.
+              </div>
+              <div class="chip-row">
+                <span class="chip">Data Lake</span>
+                <span class="chip">Arquitetura</span>
+              </div>
+            </div>
+  
+            <!-- Semantix -->
+            <div
+              class="timeline-item"
+              data-detail="Construção de pipelines em AWS para ingestão e analytics com foco em escalabilidade e confiabilidade."
+              data-highlights="Ingestão e transformação com pipelines AWS|Infra como código para dados|Dashboards de monitoramento e alertas"
+            >
+              <div class="timeline-dot"></div>
+              <div class="timeline-role">Data Engineer</div>
+              <div class="timeline-company">Semantix</div>
+              <div class="timeline-period">Mar de 2020 – Jun de 2020</div>
+              <div class="timeline-desc">
+                Projeto: Pipelines AWS para ingestão e analytics.
+              </div>
+              <div class="chip-row">
+                <span class="chip">AWS</span>
+                <span class="chip">ETL</span>
+              </div>
+            </div>
+  
+            <!-- Tivit -->
+            <div
+              class="timeline-item"
+              data-detail="Entrega de ambientes de dados para clientes financeiros com alta disponibilidade, performance e governança."
+              data-highlights="Integração de dados críticos para finanças|Otimização de ETLs e SLAs|Alta disponibilidade e performance SQL"
+            >
+              <div class="timeline-dot"></div>
+              <div class="timeline-role">Data Engineer</div>
+              <div class="timeline-company">Tivit</div>
+              <div class="timeline-period">Jan de 2014 – Mar de 2020</div>
+              <div class="timeline-desc">
+                Projeto: Nissan / Porto Seguro / Cielo – ambientes de dados críticos.
+              </div>
+              <div class="chip-row">
+                <span class="chip">SQL</span>
+                <span class="chip">ETL</span>
+                <span class="chip">Projetos Financeiros</span>
+              </div>
+            </div>
+  
+            <!-- IBM -->
+            <div
+              class="timeline-item"
+              data-detail="Administração Oracle em ambiente bancário durante a migração Banco Real → Santander, garantindo continuidade e performance."
+              data-highlights="Automação de rotinas e tuning Oracle|Planos de backup e recuperação|Suporte 24x7 em ambientes críticos"
+            >
+              <div class="timeline-dot"></div>
+              <div class="timeline-role">DBA Oracle</div>
+              <div class="timeline-company">IBM</div>
+              <div class="timeline-period">Fev de 2009 – Ago de 2014</div>
+              <div class="timeline-desc">
+                Projeto: Migração Banco Real → Santander.
+              </div>
+              <div class="chip-row">
+                <span class="chip">Oracle</span>
+                <span class="chip">SQL</span>
+              </div>
+            </div>
+  
+            <!-- HP -->
+            <div
+              class="timeline-item"
+              data-detail="Suporte a grandes clientes em ambientes corporativos de impressão, garantindo SLAs e experiência consistente."
+              data-highlights="Gestão de incidentes e SLAs|Treinamento de equipes locais|Padronização de procedimentos de suporte"
+            >
+              <div class="timeline-dot"></div>
+              <div class="timeline-role">Support Analyst</div>
+              <div class="timeline-company">HP</div>
+              <div class="timeline-period">Abr de 2005 – Jan de 2009</div>
+              <div class="timeline-desc">
+                Projeto: Print Service BR / Sadia / Colgate / Nestlé / Braskem.
+              </div>
+              <div class="chip-row">
+                <span class="chip">Infraestrutura</span>
+                <span class="chip">Suporte</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="timeline-detail" id="timelineDetail">
+            <div class="detail-label">Atuação</div>
+            <h3 class="detail-title" id="detailTitle">Selecione uma experiência</h3>
+            <p class="detail-meta" id="detailMeta">Clique para abrir os destaques.</p>
+            <p class="detail-summary" id="detailSummary">
+              A descrição aparece aqui somente quando você seleciona uma experiência.
+            </p>
+            <ul class="detail-points" id="detailPoints"></ul>
+          </div>
+        </div>
+      </section>
+  
+      <!-- PROJETOS (SEÇÃO PRÓPRIA, ABAIXO DE EXPERIÊNCIA E ANTES DE FORMAÇÃO) -->
+      <section id="projetos" class="section">
+        <h2 class="section-title" data-i18n="projTitle">Projetos</h2>
+        <p class="section-subtitle" data-i18n="projSubtitle">
+          Últimos projetos que sofreram updates recentes.
+        </p>
+  
+        <h3 class="projects-recent-title" data-i18n="projRecentTitle">Últimos projetos atualizados</h3>
+  
+        <div class="projects-scroll-wrapper">
+          <div class="projects-grid">
+            <!-- Card 1 -->
+            <a href="#link-detalhes-1" class="project-card">
+              <div class="project-img">🧊</div>
+              <div class="project-body">
+                <span class="project-badge-updated">Atualizado em 05/12/2025</span>
+                <div class="project-title">
+                  Migração de Data Lake – Genial Investimentos
+                </div>
+                <div class="project-meta">
+                  Replatform de Data Lake on-prem para arquitetura Lakehouse em AWS + Databricks.
+                </div>
+                <div class="project-tags">
+                  <span class="tag">AWS</span>
+                  <span class="tag">Databricks</span>
+                  <span class="tag">Delta Lake</span>
+                </div>
+                <div class="project-footer">
+                  <span>POC → Produção</span>
+                  <span>Ver detalhes ↗</span>
+                </div>
+              </div>
+            </a>
+  
+            <!-- Card 2 -->
+            <a href="#link-detalhes-2" class="project-card">
+              <div class="project-img">⚙️</div>
+              <div class="project-body">
+                <span class="project-badge-updated">Atualizado em 30/11/2025</span>
+                <div class="project-title">
+                  Pipeline de MLOps – Classificação de Churn
+                </div>
+                <div class="project-meta">
+                  Pipeline fim a fim com treino, deploy em endpoint e monitoramento de drift.
+                </div>
+                <div class="project-tags">
+                  <span class="tag">MLOps</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">MLflow</span>
+                </div>
+                <div class="project-footer">
+                  <span>Status: Em produção</span>
+                  <span>Ver detalhes ↗</span>
+                </div>
+              </div>
+            </a>
+  
+            <!-- Card 3 -->
+            <a href="#link-detalhes-3" class="project-card">
+              <div class="project-img">☁️</div>
+              <div class="project-body">
+                <span class="project-badge-updated">Atualizado em 22/11/2025</span>
+                <div class="project-title">
+                  Arquitetura de Dados – Plataforma Multi-Cloud
+                </div>
+                <div class="project-meta">
+                  Data Platform unificando AWS, Azure e GCP com governança centralizada.
+                </div>
+                <div class="project-tags">
+                  <span class="tag">Arquitetura</span>
+                  <span class="tag">AWS</span>
+                  <span class="tag">Azure</span>
+                  <span class="tag">GCP</span>
+                </div>
+                <div class="project-footer">
+                  <span>Fase: Roadmap</span>
+                  <span>Ver detalhes ↗</span>
+                </div>
+              </div>
+            </a>
+  
+            <!-- Card 4 -->
+            <a href="#link-detalhes-4" class="project-card">
+              <div class="project-img">📊</div>
+              <div class="project-body">
+                <span class="project-badge-updated">Atualizado em 15/11/2025</span>
+                <div class="project-title">
+                  Customer Score – Plataforma de Crédito
+                </div>
+                <div class="project-meta">
+                  Modelo de scoring com explainability e monitoramento de performance.
+                </div>
+                <div class="project-tags">
+                  <span class="tag">ML</span>
+                  <span class="tag">Explainable AI</span>
+                  <span class="tag">Python</span>
+                </div>
+                <div class="project-footer">
+                  <span>Em operação</span>
+                  <span>Ver detalhes ↗</span>
+                </div>
+              </div>
+            </a>
+  
+            <!-- Card 5 -->
+            <a href="#link-detalhes-5" class="project-card">
+              <div class="project-img">🧠</div>
+              <div class="project-body">
+                <span class="project-badge-updated">Atualizado em 10/11/2025</span>
+                <div class="project-title">
+                  GenAI – Chatbot para Investimentos
+                </div>
+                <div class="project-meta">
+                  Agente conversacional com RAG para dúvidas sobre produtos de investimento.
+                </div>
+                <div class="project-tags">
+                  <span class="tag">GenAI</span>
+                  <span class="tag">RAG</span>
+                  <span class="tag">Azure OpenAI</span>
+                </div>
+                <div class="project-footer">
+                  <span>Piloto</span>
+                  <span>Ver detalhes ↗</span>
+                </div>
+              </div>
+            </a>
+  
+            <!-- Card 6 -->
+            <a href="#link-detalhes-6" class="project-card">
+              <div class="project-img">📦</div>
+              <div class="project-body">
+                <span class="project-badge-updated">Atualizado em 03/11/2025</span>
+                <div class="project-title">
+                  Data Lake Varejo – Jornada Omnichannel
+                </div>
+                <div class="project-meta">
+                  Unificação de canais físicos e digitais para visão única do cliente.
+                </div>
+                <div class="project-tags">
+                  <span class="tag">Retail</span>
+                  <span class="tag">AWS</span>
+                  <span class="tag">Databricks</span>
+                </div>
+                <div class="project-footer">
+                  <span>Rollout parcial</span>
+                  <span>Ver detalhes ↗</span>
+                </div>
+              </div>
+            </a>
+  
+            <!-- Card 7 -->
+            <a href="#link-detalhes-7" class="project-card">
+              <div class="project-img">🚨</div>
+              <div class="project-body">
+                <span class="project-badge-updated">Atualizado em 28/10/2025</span>
+                <div class="project-title">
+                  Detecção de Fraude em Tempo Real
+                </div>
+                <div class="project-meta">
+                  Arquitetura de streaming com alertas em segundos para transações suspeitas.
+                </div>
+                <div class="project-tags">
+                  <span class="tag">Streaming</span>
+                  <span class="tag">Kafka</span>
+                  <span class="tag">GCP</span>
+                </div>
+                <div class="project-footer">
+                  <span>POC validada</span>
+                  <span>Ver detalhes ↗</span>
+                </div>
+              </div>
+            </a>
+  
+            <!-- Card 8 -->
+            <a href="#link-detalhes-8" class="project-card">
+              <div class="project-img">🧾</div>
+              <div class="project-body">
+                <span class="project-badge-updated">Atualizado em 20/10/2025</span>
+                <div class="project-title">
+                  Governança de Dados – Contratos &amp; Linhagem
+                </div>
+                <div class="project-meta">
+                  Data Contracts, lineage e monitoração de qualidade em pipelines críticos.
+                </div>
+                <div class="project-tags">
+                  <span class="tag">Governance</span>
+                  <span class="tag">Data Contracts</span>
+                  <span class="tag">Lineage</span>
+                </div>
+                <div class="project-footer">
+                  <span>Em implementação</span>
+                  <span>Ver detalhes ↗</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+  
+      <!-- FORMAÇÃO ACADÊMICA -->
+      <section id="formacao" class="section">
+        <h2 class="section-title" data-i18n="eduTitle">Formação Acadêmica</h2>
+        <p class="section-subtitle" data-i18n="eduSubtitle">
+          Cursos de graduação, pós, especializações e mestrado.
+        </p>
+  
+        <div class="timeline-edu">
+          <div class="edu-item">
+            <div class="edu-marker in-progress">
+              <img src="img/IPT.png" alt="IPT" />
+            </div>
+            <div class="edu-title">
+              IPT – Mestrado Acadêmico – Computação Aplicada
+            </div>
+            <div class="edu-period">Jan 2025 – Em andamento</div>
+          </div>
+  
+          <div class="edu-item">
+            <div class="edu-marker in-progress">
+              <img src="img/FIAP.png" alt="FIAP" />
+            </div>
+            <div class="edu-title">FIAP – PosTech Machine Learning</div>
+            <div class="edu-period">Abr 2025 – Em andamento</div>
+          </div>
+  
+          <div class="edu-item">
+            <div class="edu-marker in-progress">
+              <img src="img/The Cloud Bootcamp.webp" alt="The Cloud Bootcamp" />
+            </div>
+            <div class="edu-title">
+              The Cloud Bootcamp – Especialização em IA
+            </div>
+            <div class="edu-period">Jun 2024 – Em andamento</div>
+          </div>
+  
+          <div class="edu-item">
+            <div class="edu-marker">
+              <img src="img/FIAP.png" alt="FIAP" />
+            </div>
+            <div class="edu-title">FIAP – PosTech Inteligência Artificial</div>
+            <div class="edu-period">Jun 2024 – Jun 2025</div>
+          </div>
+  
+          <div class="edu-item">
+            <div class="edu-marker">
+              <img src="img/FIA.png" alt="FIA" />
+            </div>
+            <div class="edu-title">FIA – MBA Analytics em Big Data</div>
+            <div class="edu-period">Set 2019 – Nov 2021</div>
+          </div>
+  
+          <div class="edu-item">
+            <div class="edu-marker">
+              <img src="img/FIAP.png" alt="FIAP" />
+            </div>
+            <div class="edu-title">
+              FIAP – Tecnólogo – Data Science Big Data, BI &amp; Data Engineering
+            </div>
+            <div class="edu-period">Jan 2017 – Dez 2018</div>
+          </div>
+  
+          <div class="edu-item">
+            <div class="edu-marker">
+              <img src="img/FIAP.png" alt="FIAP" />
+            </div>
+            <div class="edu-title">FIAP – Tecnólogo – Banco de Dados</div>
+            <div class="edu-period">Jan 2015 – Dez 2016</div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- IDIOMAS -->
+      <section id="idiomas" class="section">
+        <h2 class="section-title" data-i18n="langTitle">Idiomas</h2>
+        <p class="section-subtitle" data-i18n="langSubtitle">
+          Conhecimento em idiomas para atuação internacional.
+        </p>
+  
+        <div class="lang-grid">
+          <div class="lang-pill lang-pt" data-i18n="langPt">Português: Nativo</div>
+          <div class="lang-pill lang-en" data-i18n="langEn">Inglês: Intermediário</div>
+          <div class="lang-pill lang-es" data-i18n="langEs">Espanhol: Avançado</div>
+          <div class="lang-pill lang-fr" data-i18n="langFr">Francês: Básico</div>
+        </div>
+      </section>
+  
+      <!-- CERTIFICAÇÕES -->
+      <section id="certificacoes" class="section">
+        <h2 class="section-title" data-i18n="certTitle">Certificações</h2>
+        <p class="section-subtitle" data-i18n="certSubtitle">
+          Badges oficiais Databricks e AWS.
+        </p>
+  
+        <div class="cert-list">
+          <!-- Databricks -->
+          <h3 class="projects-recent-title" style="margin-top:8px;">Databricks</h3>
+          <div class="cert-item">
+            <img class="cert-badge" src="img/Databricks Data Engineer Associate.png" alt="Databricks Data Engineer Associate" />
+            <div>
+              <div class="cert-title">Databricks Data Engineer Associate</div>
+              <div class="cert-org">Databricks</div>
+            </div>
+          </div>
+
+          <div class="cert-item">
+            <img class="cert-badge" src="img/Databricks Data Engineer Professional.png" alt="Databricks Data Engineer Professional" />
+            <div>
+              <div class="cert-title">Databricks Data Engineer Professional</div>
+              <div class="cert-org">Databricks</div>
+            </div>
+          </div>
+
+          <div class="cert-item">
+            <img class="cert-badge" src="img/Databricks Machine Learning Associate.png" alt="Databricks Machine Learning Associate" />
+            <div>
+              <div class="cert-title">Databricks Machine Learning Engineer Associate</div>
+              <div class="cert-org">Databricks</div>
+            </div>
+          </div>
+
+          <div class="cert-item">
+            <img class="cert-badge" src="img/Databricks Machine Learning Professional.png" alt="Databricks Machine Learning Professional" />
+            <div>
+              <div class="cert-title">Databricks Machine Learning Engineer Professional</div>
+              <div class="cert-org">Databricks</div>
+            </div>
+          </div>
+
+          <h3 class="projects-recent-title" style="margin-top:14px;">AWS</h3>
+          <div class="cert-item">
+            <img class="cert-badge" src="img/AWS AI Practitioner.png" alt="AWS Certified AI Practitioner" />
+            <div>
+              <div class="cert-title">AWS Certified AI Practitioner</div>
+              <div class="cert-org">Amazon Web Services</div>
+            </div>
+          </div>
+
+          <div class="cert-item">
+            <img class="cert-badge" src="img/AWS Machine Learning Associate.png" alt="AWS Certified Machine Learning Engineer – Associate" />
+            <div>
+              <div class="cert-title">AWS Certified Machine Learning Engineer – Associate</div>
+              <div class="cert-org">Amazon Web Services</div>
+            </div>
+          </div>
+
+          <div class="cert-item">
+            <img class="cert-badge" src="img/AWS Machine Learning Professional.png" alt="AWS Certified Machine Learning – Professional" />
+            <div>
+              <div class="cert-title">AWS Certified Machine Learning – Professional</div>
+              <div class="cert-org">Amazon Web Services</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CONTATO -->
+      <section id="contato" class="section">
+        <h2 class="section-title" data-i18n="contactTitle">Contato</h2>
+        <p class="section-subtitle" data-i18n="contactSubtitle">
+          Canais para networking, projetos e oportunidades.
+        </p>
+        <p class="contact-text">
+          E-mail:
+          <a href="mailto:seuemail@dominio.com">seuemail@dominio.com</a><br />
+          LinkedIn:
+          <a href="https://www.linkedin.com/in/seu-usuario" target="_blank">linkedin.com/in/seu-usuario</a><br />
+          GitHub:
+          <a href="https://github.com/seu-usuario" target="_blank">github.com/seu-usuario</a>
+        </p>
+      </section>
+  
+    </main>
+  
+    <!-- ===================== SCRIPTS: TEMA + IDIOMA ===================== -->
+    <script>
+      // ---------- THEME TOGGLE ----------
+      const themeToggleBtn = document.getElementById('themeToggle');
+      const root = document.documentElement;
+  
+      let currentTheme = localStorage.getItem('theme') || 'dark';
+      root.setAttribute('data-theme', currentTheme);
+  
+      function updateThemeIcon() {
+        if (currentTheme === 'dark') {
+          themeToggleBtn.textContent = '☀️';
+          themeToggleBtn.setAttribute('aria-label', 'Ativar modo claro');
+        } else {
+          themeToggleBtn.textContent = '🌙';
+          themeToggleBtn.setAttribute('aria-label', 'Ativar modo escuro');
+        }
+      }
+      updateThemeIcon();
+  
+      themeToggleBtn.addEventListener('click', () => {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', currentTheme);
+        localStorage.setItem('theme', currentTheme);
+        updateThemeIcon();
+      });
+
+      // ---------- TIMELINE DETAIL (EXP) ----------
+      const timelineWrapper = document.querySelector('#experiencia .timeline-wrapper');
+      const timelineItems = document.querySelectorAll('#experiencia .timeline-item');
+      const detailPanel = document.getElementById('timelineDetail');
+      const detailTitle = document.getElementById('detailTitle');
+      const detailMeta = document.getElementById('detailMeta');
+      const detailSummary = document.getElementById('detailSummary');
+      const detailPoints = document.getElementById('detailPoints');
+      let activeTimelineItem = null;
+
+      function resetTimelineDetail() {
+        activeTimelineItem = null;
+        timelineItems.forEach((el) => el.classList.remove('active'));
+        detailTitle.textContent = 'Selecione uma experiência';
+        detailMeta.textContent = 'Clique para abrir os destaques.';
+        detailSummary.textContent =
+          'A descrição aparece aqui somente quando você seleciona uma experiência.';
+        detailPoints.innerHTML = '';
+        detailPanel.classList.remove('visible', 'animate');
+      }
+
+      function renderTimelineDetail(item) {
+        if (!item || !detailPanel) return;
+
+        // se clicar no mesmo item, alterna (mostra/esconde)
+        if (activeTimelineItem === item && detailPanel.classList.contains('visible')) {
+          resetTimelineDetail();
+          return;
+        }
+
+        activeTimelineItem = item;
+
+        timelineItems.forEach((el) => el.classList.remove('active'));
+        item.classList.add('active');
+
+        const role = item.querySelector('.timeline-role')?.textContent.trim() || '';
+        const company = item.querySelector('.timeline-company')?.textContent.trim() || '';
+        const period = item.querySelector('.timeline-period')?.textContent.trim() || '';
+        const desc =
+          item.getAttribute('data-detail') ||
+          item.querySelector('.timeline-desc')?.textContent.trim() ||
+          '';
+
+        detailTitle.textContent = role;
+        detailMeta.textContent = `${company} • ${period}`;
+        detailSummary.textContent = desc;
+
+        detailPoints.innerHTML = '';
+        const highlights = (item.getAttribute('data-highlights') || '')
+          .split('|')
+          .map((p) => p.trim())
+          .filter(Boolean);
+
+        highlights.forEach((point) => {
+          const li = document.createElement('li');
+          li.textContent = point;
+          detailPoints.appendChild(li);
+        });
+
+        // posiciona o painel alinhado ao item clicado (somente desktop)
+        if (timelineWrapper && window.innerWidth > 980) {
+          // item.offsetTop já é relativo ao wrapper, não subtrair
+          detailPanel.style.top = `${item.offsetTop}px`;
+        } else {
+          detailPanel.style.top = '0px';
+        }
+
+        detailPanel.classList.add('visible');
+        detailPanel.classList.remove('animate');
+        void detailPanel.offsetWidth; // restart animation
+        detailPanel.classList.add('animate');
+      }
+
+      timelineItems.forEach((item) => {
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+        item.addEventListener('click', () => renderTimelineDetail(item));
+        item.addEventListener('keydown', (evt) => {
+          if (evt.key === 'Enter' || evt.key === ' ') {
+            evt.preventDefault();
+            renderTimelineDetail(item);
+          }
+        });
+      });
+
+      // inicia vazio; somente exibe quando clicar em uma experiência
+
+      // ---------- ADMIN VIEW (CERTIFICAÇÕES) ----------
+      const certSection = document.getElementById('certificacoes');
+
+      function isAdminView() {
+        return localStorage.getItem('isAdmin') === 'true';
+      }
+
+      function updateAdminVisibility() {
+        if (!certSection) return;
+        certSection.classList.toggle('admin-hidden', !isAdminView());
+      }
+
+      // permitir setar via querystring: ?admin=1 habilita, ?admin=0 desabilita
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('admin')) {
+        const adminFlag = urlParams.get('admin') === '1';
+        localStorage.setItem('isAdmin', adminFlag ? 'true' : 'false');
+      }
+      updateAdminVisibility();
+  
+      // ---------- I18N (PT / EN / ES) ----------
+      const i18nDict = {
+        pt: {
+          brandName: 'JOSE CARLOS BATISTA',
+          navResumo: 'Resumo',
+          navExperiencia: 'Experiência',
+          navProjetos: 'Projetos',
+          navArqDados: 'Arquitetura de Dados',
+          navDatabricks: 'Databricks',
+          navFormacao: 'Formação',
+          navIdiomas: 'Idiomas',
+          navCertificacoes: 'Certificações',
+          navContato: 'Contato',
+          heroTitle1: 'Arquiteto de Dados / Engenharia de Dados &',
+          heroTitle2: 'Engenheiro de Machine Learning',
+          heroText:
+            'Profissional focado em arquiteturas de dados modernas, pipelines escaláveis e soluções de Machine Learning aplicadas ao negócio, com experiência em ambientes financeiros e multi-cloud.',
+          expTitle: 'Experiência – Linha do Tempo da Carreira',
+          expSubtitle: 'Principais posições em dados, arquitetura e machine learning.',
+          projTitle: 'Projetos',
+          projSubtitle: 'Últimos projetos que sofreram updates recentes.',
+          projRecentTitle: 'Últimos projetos atualizados',
+          eduTitle: 'Formação Acadêmica',
+          eduSubtitle: 'Cursos de graduação, pós, especializações e mestrado.',
+          langTitle: 'Idiomas',
+          langSubtitle: 'Conhecimento em idiomas para atuação internacional.',
+          langPt: 'Português: Nativo',
+          langEn: 'Inglês: Intermediário',
+          langEs: 'Espanhol: Avançado',
+          langFr: 'Francês: Básico',
+          certTitle: 'Certificações',
+          certSubtitle:
+            'Badges oficiais Databricks e AWS (adicione seus PNG/SVG na pasta badges/).',
+          contactTitle: 'Contato',
+          contactSubtitle: 'Canais para networking, projetos e oportunidades.'
+        },
+        en: {
+          brandName: 'JOSE CARLOS BATISTA',
+          navResumo: 'Overview',
+          navExperiencia: 'Experience',
+          navProjetos: 'Projects',
+          navArqDados: 'Data Architecture',
+          navDatabricks: 'Databricks',
+          navFormacao: 'Education',
+          navIdiomas: 'Languages',
+          navCertificacoes: 'Certifications',
+          navContato: 'Contact',
+          heroTitle1: 'Data Architect / Data Engineering &',
+          heroTitle2: 'Machine Learning Engineer',
+          heroText:
+            'Professional focused on modern data architectures, scalable pipelines and applied Machine Learning solutions, with strong experience in financial and multi-cloud environments.',
+          expTitle: 'Experience – Career Timeline',
+          expSubtitle: 'Key roles in data, architecture and machine learning.',
+          projTitle: 'Projects',
+          projSubtitle: 'Latest projects with recent updates.',
+          projRecentTitle: 'Most recently updated projects',
+          eduTitle: 'Academic Background',
+          eduSubtitle: 'Degrees, post-graduation, specializations and master’s program.',
+          langTitle: 'Languages',
+          langSubtitle: 'Language skills for international work.',
+          langPt: 'Portuguese: Native',
+          langEn: 'English: Intermediate',
+          langEs: 'Spanish: Advanced',
+          langFr: 'French: Basic',
+          certTitle: 'Certifications',
+          certSubtitle:
+            'Official Databricks and AWS badges (add your PNG/SVG files under badges/).',
+          contactTitle: 'Contact',
+          contactSubtitle: 'Channels for networking, projects and opportunities.'
+        },
+        es: {
+          brandName: 'JOSE CARLOS BATISTA',
+          navResumo: 'Resumen',
+          navExperiencia: 'Experiencia',
+          navProjetos: 'Proyectos',
+          navArqDados: 'Arquitectura de Datos',
+          navDatabricks: 'Databricks',
+          navFormacao: 'Formación',
+          navIdiomas: 'Idiomas',
+          navCertificacoes: 'Certificaciones',
+          navContato: 'Contacto',
+          heroTitle1: 'Arquitecto de Datos / Ingeniería de Datos y',
+          heroTitle2: 'Ingeniero de Machine Learning',
+          heroText:
+            'Profesional enfocado en arquitecturas de datos modernas, pipelines escalables y soluciones de Machine Learning aplicadas al negocio, con experiencia en entornos financieros y multi-cloud.',
+          expTitle: 'Experiencia – Línea de Tiempo Profesional',
+          expSubtitle: 'Principales posiciones en datos, arquitectura y machine learning.',
+          projTitle: 'Proyectos',
+          projSubtitle: 'Últimos proyectos con actualizaciones recientes.',
+          projRecentTitle: 'Proyectos actualizados recientemente',
+          eduTitle: 'Formación Académica',
+          eduSubtitle: 'Grados, posgrados, especializaciones y máster.',
+          langTitle: 'Idiomas',
+          langSubtitle: 'Conocimientos de idiomas para actuación internacional.',
+          langPt: 'Portugués: Nativo',
+          langEn: 'Inglés: Intermedio',
+          langEs: 'Español: Avanzado',
+          langFr: 'Francés: Básico',
+          certTitle: 'Certificaciones',
+          certSubtitle:
+            'Badges oficiales de Databricks y AWS (añade tus PNG/SVG en la carpeta badges/).',
+          contactTitle: 'Contacto',
+          contactSubtitle: 'Canales para networking, proyectos y oportunidades.'
+        }
+      };
+  
+      const langButtons = document.querySelectorAll('.lang-btn');
+      let currentLang = localStorage.getItem('lang') || 'pt';
+  
+      function applyLanguage(lang) {
+        const dict = i18nDict[lang] || i18nDict.pt;
+  
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key]) {
+            el.textContent = dict[key];
+          }
+        });
+
+        if (activeTimelineItem) {
+          renderTimelineDetail(activeTimelineItem);
+        } else {
+          resetTimelineDetail();
+        }
+  
+        langButtons.forEach((btn) => {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+  
+        localStorage.setItem('lang', lang);
+        currentLang = lang;
+      }
+  
+      langButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          applyLanguage(btn.dataset.lang);
+        });
+      });
+  
+      // aplica o idioma salvo (ou PT como padrão)
+      applyLanguage(currentLang);
+    </script>
+  </body>
+  </html>
+  
