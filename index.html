@@ -374,19 +374,21 @@
       position: relative;
       display: block;
       margin-top: 8px;
-      padding-right: 460px; /* espaço para o painel à direita */
+      padding-right: 720px; /* espaço para o painel à direita */
       min-height: 280px;
     }
 
     .timeline-detail {
       position: absolute;
       top: 0;
-      left: calc(100% - 440px);
-      width: 400px;
+      left: calc(100% - 700px);
+      width: 660px;
+      max-height: 90vh;
+      overflow-y: auto;
       background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 14px;
-      padding: 18px;
+      padding: 24px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
       transform-origin: center;
       transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.2s ease;
@@ -402,6 +404,24 @@
 
     :root[data-theme="light"] .detail-title {
       color: #111827;
+    }
+
+    .timeline-detail::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .timeline-detail::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+
+    .timeline-detail::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.5);
+      border-radius: 10px;
+    }
+
+    .timeline-detail::-webkit-scrollbar-thumb:hover {
+      background: rgba(99, 102, 241, 0.7);
     }
 
     .timeline-detail.visible {
@@ -447,8 +467,25 @@
 
     .detail-summary {
       font-size: 13px;
+      line-height: 1.8;
       color: var(--text-main);
-      margin-bottom: 10px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .detail-summary p {
+      margin: 0 0 32px 0;
+      line-height: 1.8;
+      padding: 0;
+    }
+
+    .detail-summary p:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .detail-summary p:last-child {
+      margin-bottom: 0;
     }
 
     .detail-points {
@@ -980,15 +1017,16 @@
             <!-- Atual -->
             <div
               class="timeline-item"
-              data-detail="Migração completa do data lake legado para uma arquitetura Lakehouse com governança, performance e esteiras de MLOps para modelos de investimento."
-              data-highlights="Replatforming em Databricks com Delta Lake|Esteiras de MLOps e observabilidade para modelos de risco|Camadas bronze/silver/gold com governança e otimização de custos"
+              data-detail-pt="Liderei a migração completa do Data Lake corporativo do Azure para a AWS, com o objetivo de modernizar o ambiente analítico, melhorar a performance e reduzir os custos operacionais por meio de uma arquitetura escalável baseada em Databricks.\n\nFui responsável por garantir uma transição segura, eficiente e governada, desde o desenho da nova arquitetura até a entrega de pipelines prontos para produção, mantendo alto desempenho e otimizando os custos em nuvem.\n\nComo Arquiteto de Dados Líder, também atuei de forma prática como Engenheiro de Dados e Engenheiro de Machine Learning. Desenhei e implementei pipelines de DevOps utilizando Databricks Asset Bundles e Azure DevOps, criando um ambiente totalmente versionado, automatizado e auditável. Liderei uma equipe composta por 6 consultores e 7 engenheiros de dados do cliente, promovendo colaboração, padronização e as melhores práticas de DataOps.\n\nImplementei a governança de dados com o Unity Catalog, assegurando controle de acesso, versionamento, rastreabilidade (lineage) e segurança ponta a ponta. Além disso, otimizei os pipelines de ingestão e transformação de dados com Delta Lake e particionamento dinâmico, aplicando estratégias de FinOps para aumentar a eficiência de recursos.\n\nA iniciativa resultou em uma redução de 60% nos custos de infraestrutura e em um aumento significativo de performance nos pipelines. Também eliminamos 30 dashboards redundantes, concentrando os esforços em KPIs estratégicos de negócio e insights acionáveis. O projeto foi entregue no prazo, com alto impacto para o negócio, e possibilitou uma plataforma de dados multicloud moderna, escalável e governada."
+              data-detail-en="I led the complete migration of the corporate Data Lake from Azure to AWS, with the objective of modernizing the analytical environment, improving performance, and reducing operational costs through a scalable architecture based on Databricks.\n\nI was responsible for ensuring a secure, efficient, and governed transition, from designing the new architecture to delivering production-ready pipelines, maintaining high performance and optimizing cloud costs.\n\nAs Lead Data Architect, I also acted practically as Data Engineer and Machine Learning Engineer. I designed and implemented DevOps pipelines using Databricks Asset Bundles and Azure DevOps, creating a fully versioned, automated, and auditable environment. I led a team composed of 6 consultants and 7 client data engineers, promoting collaboration, standardization, and DataOps best practices.\n\nI implemented data governance with Unity Catalog, ensuring access control, versioning, traceability (lineage), and end-to-end security. Additionally, I optimized data ingestion and transformation pipelines with Delta Lake and dynamic partitioning, applying FinOps strategies to increase resource efficiency.\n\nThe initiative resulted in a 60% reduction in infrastructure costs and a significant increase in pipeline performance. We also eliminated 30 redundant dashboards, focusing efforts on strategic business KPIs and actionable insights. The project was delivered on time, with high business impact, and enabled a modern, scalable, and governed multi-cloud data platform."
+              data-detail-es="Lideré la migración completa del Data Lake corporativo de Azure a AWS, con el objetivo de modernizar el entorno analítico, mejorar el rendimiento y reducir los costos operativos mediante una arquitectura escalable basada en Databricks.\n\nFui responsable de garantizar una transición segura, eficiente y gobernada, desde el diseño de la nueva arquitectura hasta la entrega de pipelines listos para producción, manteniendo alto rendimiento y optimizando los costos en la nube.\n\nComo Arquitecto de Datos Líder, también actué de forma práctica como Ingeniero de Datos e Ingeniero de Machine Learning. Diseñé e implementé pipelines de DevOps utilizando Databricks Asset Bundles y Azure DevOps, creando un entorno totalmente versionado, automatizado y auditable. Lideré un equipo compuesto por 6 consultores y 7 ingenieros de datos del cliente, promoviendo colaboración, estandarización y las mejores prácticas de DataOps.\n\nImplementé la gobernanza de datos con Unity Catalog, asegurando control de acceso, versionamiento, trazabilidad (lineage) y seguridad de extremo a extremo. Además, optimicé los pipelines de ingesta y transformación de datos con Delta Lake y particionamiento dinámico, aplicando estrategias de FinOps para aumentar la eficiencia de recursos.\n\nLa iniciativa resultó en una reducción del 60% en los costos de infraestructura y en un aumento significativo del rendimiento de los pipelines. También eliminamos 30 dashboards redundantes, concentrando los esfuerzos en KPIs estratégicos de negocio e insights accionables. El proyecto fue entregado a tiempo, con alto impacto para el negocio, y permitió una plataforma de datos multicloud moderna, escalable y gobernada."
             >
               <div class="timeline-dot current"></div>
               <div class="timeline-role">
                 Data Architect / Data Engineer / Machine Learning Engineer
               </div>
               <div class="timeline-company">Data Technology</div>
-              <div class="timeline-period">Jul de 2024 – Dez de 2025</div>
+              <div class="timeline-period">Jul de 2024 – Em andamento</div>
               <div class="timeline-desc">
                 Projeto: Migração de Data Lake para arquitetura moderna de investimentos.
               </div>
@@ -1005,6 +1043,17 @@
               class="timeline-item"
               data-detail="Concepção e entrega de pré-vendas e arquiteturas de GenAI e dados em múltiplas nuvens, incluindo POCs aceleradas com foco em negócios."
               data-highlights="Arquiteturas GenAI multi-cloud e RAG|Playbooks de MLOps e observabilidade|Propostas técnicas e workshops executivos"
+
+              
+
+              data-detail-pt="Atuei na área de pré-vendas, apoiando empresas que enfrentavam desafios de escalabilidade de dados, automação de processos manuais e modernização em nuvem, especialmente aquelas que lidavam com grandes volumes de dados e ambientes de integração complexos.\n\nMinha principal responsabilidade era compreender profundamente o ambiente de negócios de cada cliente e projetar soluções de Dados e IA robustas e escaláveis com AWS Analytics, Inteligência Artificial e IA Generativa, garantindo que as equipes de entrega tivessem o direcionamento técnico e os recursos adequados.\n\nAtuando como Arquiteto de Soluções em Dados e IA, projetei e implementei arquiteturas completas de Dados e IA na AWS, integrando serviços como S3, Glue, Athena, Lambda, Step Functions e SageMaker. Também conduzi sessões técnicas de descoberta com executivos e equipes de engenharia para identificar gargalos e oportunidades de automação.\n\nAlém disso, realizei apresentações técnicas e de negócios de alto impacto, traduzindo arquiteturas complexas em valor de negócio claro, e apoiei clientes na integração de IA e automação, transformando processos manuais em fluxos de trabalho eficientes e orientados por dados.\n\nComo resultado, os clientes alcançaram maior escalabilidade, automação e eficiência de custos por meio de arquiteturas nativas em nuvem, acelerando a tomada de decisão orientada por dados com fluxos inteligentes e automatizados. Esse trabalho também contribuiu para fortalecer a posição de mercado da BRLink como parceira confiável em Dados, Analytics e IA Generativa, gerando novas oportunidades de negócio e parcerias estratégicas."
+              data-detail-en="I worked in the pre-sales area, supporting companies facing challenges in data scalability, manual process automation, and cloud modernization, particularly those managing large data volumes and complex integration environments.\n\nMy main responsibility was to deeply understand each client’s business landscape and design robust, scalable Data and AI solutions using AWS Analytics, Artificial Intelligence, and Generative AI, while ensuring delivery teams had the proper technical direction and resources.\n\nActing as a Data and AI Solutions Architect, I designed and implemented end-to-end data and AI architectures on AWS, integrating services such as S3, Glue, Athena, Lambda, Step Functions, and SageMaker. I also led technical discovery sessions with executives and engineering teams to identify bottlenecks and automation opportunities.\n\nIn addition, I delivered high-impact technical and business presentations, translating complex architectures into clear business value, and supported clients in integrating AI and automation to transform manual processes into efficient, data-driven workflows.\n\nAs a result, clients achieved greater scalability, automation, and cost efficiency through cloud-native architectures, accelerating data-driven decision-making with intelligent and automated data flows. This work also helped strengthen BRLink’s market position as a trusted partner in Data, Analytics, and Generative AI, generating new business opportunities and strategic partnerships."
+              data-detail-es="Trabajé en el área de preventa, apoyando a empresas que enfrentaban desafíos de escalabilidad de datos, automatización de procesos manuales y modernización en la nube, especialmente aquellas que manejaban grandes volúmenes de datos y entornos de integración complejos.\n\nMi principal responsabilidad era comprender en profundidad el entorno de negocio de cada cliente y diseñar soluciones de Datos e IA robustas y escalables con AWS Analytics, Inteligencia Artificial e IA Generativa, garantizando que los equipos de entrega contaran con la orientación técnica y los recursos adecuados.\n\nActuando como Arquitecto de Soluciones en Datos e IA, diseñé e implementé arquitecturas completas de Datos e IA en AWS, integrando servicios como S3, Glue, Athena, Lambda, Step Functions y SageMaker. También dirigí sesiones técnicas de descubrimiento con ejecutivos y equipos de ingeniería para identificar cuellos de botella y oportunidades de automatización.\n\nAdemás, realicé presentaciones técnicas y de negocio de alto impacto, traduciendo arquitecturas complejas en un claro valor para el negocio, y apoyé a los clientes en la integración de IA y automatización, transformando procesos manuales en flujos de trabajo eficientes y orientados por datos.\n\nComo resultado, los clientes lograron una mayor escalabilidad, automatización y eficiencia de costos mediante arquitecturas nativas en la nube, acelerando la toma de decisiones basada en datos con flujos inteligentes y automatizados. Este trabajo también contribuyó a fortalecer la posición de BRLink en el mercado como un socio confiable en Datos, Analytics e IA Generativa, generando nuevas oportunidades de negocio y alianzas estratégicas."
+            
+
+
+
+
             >
               <div class="timeline-dot"></div>
               <div class="timeline-role">Data Architect / Data Engineer / GenAI / MLOps</div>
@@ -1570,14 +1619,36 @@
         const role = item.querySelector('.timeline-role')?.textContent.trim() || '';
         const company = item.querySelector('.timeline-company')?.textContent.trim() || '';
         const period = item.querySelector('.timeline-period')?.textContent.trim() || '';
+        // Busca o texto no idioma atual, com fallback para data-detail genérico
         const desc =
+          item.getAttribute(`data-detail-${currentLang}`) ||
           item.getAttribute('data-detail') ||
           item.querySelector('.timeline-desc')?.textContent.trim() ||
           '';
 
         detailTitle.textContent = role;
         detailMeta.textContent = `${company} • ${period}`;
-        detailSummary.textContent = desc;
+        
+        // Renderiza o texto como parágrafos HTML com espaçamento
+        // Processa quebras de linha: trata tanto \n\n quanto quebras reais
+        let processedDesc = desc || '';
+        
+        // Converte \n\n escapado para quebra de linha real
+        processedDesc = processedDesc.replace(/\\n\\n/g, '\n\n');
+        // Também trata \n simples
+        processedDesc = processedDesc.replace(/\\n/g, '\n');
+        
+        // Divide por \n\n para criar parágrafos
+        if (processedDesc.includes('\n\n')) {
+          const paragraphs = processedDesc.split('\n\n').map(p => p.trim()).filter(p => p.length > 0);
+          detailSummary.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+        } else if (processedDesc.includes('\n')) {
+          // Se tiver apenas \n simples, também divide
+          const paragraphs = processedDesc.split('\n').map(p => p.trim()).filter(p => p.length > 0);
+          detailSummary.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+        } else {
+          detailSummary.textContent = processedDesc;
+        }
 
         detailPoints.innerHTML = '';
         const highlights = (item.getAttribute('data-highlights') || '')
@@ -1673,7 +1744,8 @@
           certSubtitle:
             'Badges oficiais Databricks e AWS (adicione seus PNG/SVG na pasta badges/).',
           contactTitle: 'Contato',
-          contactSubtitle: 'Canais para networking, projetos e oportunidades.'
+          contactSubtitle: 'Canais para networking, projetos e oportunidades.',
+          ongoing: 'Em andamento'
         },
         en: {
           brandName: 'JOSE CARLOS BATISTA',
@@ -1707,7 +1779,8 @@
           certSubtitle:
             'Official Databricks and AWS badges (add your PNG/SVG files under badges/).',
           contactTitle: 'Contact',
-          contactSubtitle: 'Channels for networking, projects and opportunities.'
+          contactSubtitle: 'Channels for networking, projects and opportunities.',
+          ongoing: 'Ongoing'
         },
         es: {
           brandName: 'JOSE CARLOS BATISTA',
@@ -1741,7 +1814,8 @@
           certSubtitle:
             'Badges oficiales de Databricks y AWS (añade tus PNG/SVG en la carpeta badges/).',
           contactTitle: 'Contacto',
-          contactSubtitle: 'Canales para networking, proyectos y oportunidades.'
+          contactSubtitle: 'Canales para networking, proyectos y oportunidades.',
+          ongoing: 'En curso'
         }
       };
   
@@ -1756,6 +1830,12 @@
           if (dict[key]) {
             el.textContent = dict[key];
           }
+        });
+
+        // Traduzir "Em andamento" / "Ongoing" / "En curso" nos períodos
+        const newOngoing = dict.ongoing || 'Em andamento';
+        document.querySelectorAll('.timeline-period, .edu-period').forEach((el) => {
+          el.textContent = el.textContent.replace(/Em andamento|Ongoing|En curso/g, newOngoing);
         });
 
         if (activeTimelineItem) {
