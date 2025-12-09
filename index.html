@@ -870,6 +870,71 @@
       color: var(--text-muted);
     }
 
+    /* SOBRE */
+
+    .sobre-content {
+      margin-top: 10px;
+    }
+
+    .sobre-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-main);
+      margin-bottom: 24px;
+    }
+
+    .sobre-destaque {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(79, 70, 229, 0.05));
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    :root[data-theme="light"] .sobre-destaque {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(29, 78, 216, 0.04));
+      border-color: rgba(37, 99, 235, 0.2);
+    }
+
+    .sobre-destaque-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .sobre-destaque-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .sobre-destaque-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .sobre-destaque-list li {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-main);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .sobre-destaque-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
     /* CONTATO */
 
     .contact-text a {
@@ -930,6 +995,7 @@
         <a href="#formacao" data-i18n="navFormacao">Formação</a>
         <a href="#idiomas" data-i18n="navIdiomas">Idiomas</a>
         <a href="#certificacoes" data-i18n="navCertificacoes">Certificações</a>
+        <a href="#sobre" data-i18n="navSobre">Sobre</a>
         <a href="#contato" data-i18n="navContato">Contato</a>
       </nav>
 
@@ -951,8 +1017,7 @@
           <span data-i18n="heroTitle2">Engenheiro de Machine Learning</span>
         </h1>
         <p class="hero-text" data-i18n="heroText">
-          Profissional focado em arquiteturas de dados modernas, pipelines escaláveis e soluções
-          de Machine Learning aplicadas ao negócio, com experiência em ambientes financeiros e multi-cloud.
+          Sou um profissional de tecnologia com mais de 10 anos de experiência em Engenharia de Dados e Arquitetura de Dados, especializado em Big Data em ambientes de Data Lake e Lakehouse. Trabalhei em projetos de grande escala, utilizando tecnologias da AWS, Azure e GCP, ajudando clientes a implementar arquiteturas distribuídas e serverless para transformar seus dados em insights valiosos.
         </p>
 
         <div class="hero-tags">
@@ -1485,6 +1550,30 @@
           </div>
         </div>
       </section>
+      
+      <!-- SOBRE -->
+      <section id="sobre" class="section">
+        <h2 class="section-title" data-i18n="sobreTitle">Sobre</h2>
+        <div class="sobre-content">
+          <p class="sobre-text" data-i18n="sobreText1">
+            Tenho liderado equipes de arquitetura e engenharia de dados, entregando soluções inovadoras e promovendo a reutilização de código para aumentar a eficiência dos projetos. Atualmente, estou cursando um mestrado profissional em Computação Aplicada, e duas Postech em Inteligência Artificial, o que tem aprimorado ainda mais minhas capacidades técnicas e analíticas.
+          </p>
+          
+          <div class="sobre-destaque">
+            <h3 class="sobre-destaque-title" data-i18n="sobreDestaqueTitle">Projeto de Destaque</h3>
+            <p class="sobre-destaque-text" data-i18n="sobreDestaqueText">
+              Um dos projetos de que mais me orgulho foi a migração completa de um Data Lake do Azure para o AWS Databricks.
+            </p>
+            <ul class="sobre-destaque-list">
+              <li data-i18n="sobreDestaqueItem1">O cliente enfrentava aumento de custos em nuvem e falta de governança entre os ambientes Azure.</li>
+              <li data-i18n="sobreDestaqueItem2">Eu era responsável por desenhar e executar a estratégia de migração para um ambiente unificado no AWS Databricks Lakehouse.</li>
+              <li data-i18n="sobreDestaqueItem3">Liderei uma equipe multifuncional para reestruturar pipelines, implementar o Delta Lake, automatizar ingestões com Databricks Pipelines e MSK e integrar o Unity Catalog para governança.</li>
+              <li data-i18n="sobreDestaqueItem4">O projeto reduziu os custos operacionais de nuvem em 35%, melhorou a acessibilidade e conformidade dos dados e permitiu análises em tempo real em toda a empresa.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
       <!-- CONTATO -->
       <section id="contato" class="section">
         <h2 class="section-title" data-i18n="contactTitle">Contato</h2>
@@ -1493,11 +1582,13 @@
         </p>
         <p class="contact-text">
           E-mail:
-          <a href="mailto:seuemail@dominio.com">seuemail@dominio.com</a><br />
+          <a href="mailto:jcarlos.batista@gmail.com">jcarlos.batista@gmail.com</a><br />
           LinkedIn:
-          <a href="https://www.linkedin.com/in/seu-usuario" target="_blank">linkedin.com/in/seu-usuario</a><br />
+          <a href="https://www.linkedin.com/in/jcarlos-batista/" target="_blank" rel="noopener">linkedin.com/in/jcarlos-batista</a><br />
           GitHub:
-          <a href="https://github.com/seu-usuario" target="_blank">github.com/seu-usuario</a>
+          <a href="https://github.com/jcarlosbatista" target="_blank" rel="noopener">github.com/jcarlosbatista</a><br />
+          Medium:
+          <a href="https://medium.com/@drivendatalabs_tech" target="_blank" rel="noopener">medium.com/@drivendatalabs_tech</a>
         </p>
       </section>
   
@@ -1653,7 +1744,16 @@
           heroTitle1: 'Arquiteto de Dados / Engenharia de Dados &',
           heroTitle2: 'Engenheiro de Machine Learning',
           heroText:
-            'Profissional focado em arquiteturas de dados modernas, pipelines escaláveis e soluções de Machine Learning aplicadas ao negócio, com experiência em ambientes financeiros e multi-cloud.',
+            'Sou um profissional de tecnologia com mais de 10 anos de experiência em Engenharia de Dados e Arquitetura de Dados, especializado em Big Data em ambientes de Data Lake e Lakehouse. Trabalhei em projetos de grande escala, utilizando tecnologias da AWS, Azure e GCP, ajudando clientes a implementar arquiteturas distribuídas e serverless para transformar seus dados em insights valiosos.',
+          sobreTitle: 'Sobre',
+          sobreText1: 'Tenho liderado equipes de arquitetura e engenharia de dados, entregando soluções inovadoras e promovendo a reutilização de código para aumentar a eficiência dos projetos. Atualmente, estou cursando um mestrado profissional em Computação Aplicada, e duas Postech em Inteligência Artificial, o que tem aprimorado ainda mais minhas capacidades técnicas e analíticas.',
+          sobreDestaqueTitle: 'Projeto de Destaque',
+          sobreDestaqueText: 'Um dos projetos de que mais me orgulho foi a migração completa de um Data Lake do Azure para o AWS Databricks.',
+          sobreDestaqueItem1: 'O cliente enfrentava aumento de custos em nuvem e falta de governança entre os ambientes Azure.',
+          sobreDestaqueItem2: 'Eu era responsável por desenhar e executar a estratégia de migração para um ambiente unificado no AWS Databricks Lakehouse.',
+          sobreDestaqueItem3: 'Liderei uma equipe multifuncional para reestruturar pipelines, implementar o Delta Lake, automatizar ingestões com Databricks Pipelines e MSK e integrar o Unity Catalog para governança.',
+          sobreDestaqueItem4: 'O projeto reduziu os custos operacionais de nuvem em 35%, melhorou a acessibilidade e conformidade dos dados e permitiu análises em tempo real em toda a empresa.',
+          navSobre: 'Sobre',
           expTitle: 'Experiência – Linha do Tempo da Carreira',
           expSubtitle: 'Principais posições em dados, arquitetura e machine learning.',
           projTitle: 'Projetos',
@@ -1687,7 +1787,16 @@
           heroTitle1: 'Data Architect / Data Engineering &',
           heroTitle2: 'Machine Learning Engineer',
           heroText:
-            'Professional focused on modern data architectures, scalable pipelines and applied Machine Learning solutions, with strong experience in financial and multi-cloud environments.',
+            'I am a technology professional with over 10 years of experience in Data Engineering and Data Architecture, specialized in Big Data in Data Lake and Lakehouse environments. I have worked on large-scale projects, using AWS, Azure and GCP technologies, helping clients implement distributed and serverless architectures to transform their data into valuable insights.',
+          navSobre: 'About',
+          sobreTitle: 'About',
+          sobreText1: 'I have led architecture and data engineering teams, delivering innovative solutions and promoting code reuse to increase project efficiency. Currently, I am pursuing a professional master\'s degree in Applied Computing, and two Postech in Artificial Intelligence, which has further enhanced my technical and analytical capabilities.',
+          sobreDestaqueTitle: 'Featured Project',
+          sobreDestaqueText: 'One of the projects I am most proud of was the complete migration of a Data Lake from Azure to AWS Databricks.',
+          sobreDestaqueItem1: 'The client was facing increasing cloud costs and lack of governance between Azure environments.',
+          sobreDestaqueItem2: 'I was responsible for designing and executing the migration strategy to a unified environment on AWS Databricks Lakehouse.',
+          sobreDestaqueItem3: 'I led a cross-functional team to restructure pipelines, implement Delta Lake, automate ingestions with Databricks Pipelines and MSK, and integrate Unity Catalog for governance.',
+          sobreDestaqueItem4: 'The project reduced cloud operational costs by 35%, improved data accessibility and compliance, and enabled real-time analytics across the enterprise.',
           expTitle: 'Experience – Career Timeline',
           expSubtitle: 'Key roles in data, architecture and machine learning.',
           projTitle: 'Projects',
@@ -1721,7 +1830,16 @@
           heroTitle1: 'Arquitecto de Datos / Ingeniería de Datos y',
           heroTitle2: 'Ingeniero de Machine Learning',
           heroText:
-            'Profesional enfocado en arquitecturas de datos modernas, pipelines escalables y soluciones de Machine Learning aplicadas al negocio, con experiencia en entornos financieros y multi-cloud.',
+            'Soy un profesional de tecnología con más de 10 años de experiencia en Ingeniería de Datos y Arquitectura de Datos, especializado en Big Data en entornos de Data Lake y Lakehouse. He trabajado en proyectos de gran escala, utilizando tecnologías de AWS, Azure y GCP, ayudando a clientes a implementar arquitecturas distribuidas y serverless para transformar sus datos en insights valiosos.',
+          navSobre: 'Acerca de',
+          sobreTitle: 'Acerca de',
+          sobreText1: 'He liderado equipos de arquitectura e ingeniería de datos, entregando soluciones innovadoras y promoviendo la reutilización de código para aumentar la eficiencia de los proyectos. Actualmente, estoy cursando una maestría profesional en Computación Aplicada, y dos Postech en Inteligencia Artificial, lo que ha mejorado aún más mis capacidades técnicas y analíticas.',
+          sobreDestaqueTitle: 'Proyecto Destacado',
+          sobreDestaqueText: 'Uno de los proyectos del que más me enorgullezco fue la migración completa de un Data Lake de Azure a AWS Databricks.',
+          sobreDestaqueItem1: 'El cliente enfrentaba aumento de costos en la nube y falta de gobernanza entre los entornos de Azure.',
+          sobreDestaqueItem2: 'Yo era responsable de diseñar y ejecutar la estrategia de migración a un entorno unificado en AWS Databricks Lakehouse.',
+          sobreDestaqueItem3: 'Lideré un equipo multifuncional para reestructurar pipelines, implementar Delta Lake, automatizar ingestas con Databricks Pipelines y MSK e integrar Unity Catalog para gobernanza.',
+          sobreDestaqueItem4: 'El proyecto redujo los costos operacionales de la nube en 35%, mejoró la accesibilidad y conformidad de los datos y permitió análisis en tiempo real en toda la empresa.',
           expTitle: 'Experiencia – Línea de Tiempo Profesional',
           expSubtitle: 'Principales posiciones en datos, arquitectura y machine learning.',
           projTitle: 'Proyectos',
